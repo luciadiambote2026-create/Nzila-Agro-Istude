@@ -1,0 +1,418 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+    /* Semantic Light Theme Variables */
+    --nz-canvas: #f7f9f7;
+    --nz-surface: #ffffff;
+    --nz-surface-subtle: #f2f7f3;
+    --nz-surface-hover: #fafdfb;
+    --nz-surface-tint: #eef7f0;
+    --nz-surface-warn: #fefce8;
+    --nz-border: #dce5de;
+    --nz-border-strong: #d4ddd6;
+    --nz-border-subtle: #edf2ee;
+    --nz-text-primary: #111814;
+    --nz-text-body: #1c2720;
+    --nz-text-secondary: #445449;
+    --nz-text-muted: #546459;
+    --nz-brand-text: #14532d;
+    --nz-brand-accent: #15803d;
+    --nz-warn-text: #713f12;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    /* Low-Light Forest Obsidian Dark Mode Variables */
+    --nz-canvas: #0b120e;
+    --nz-surface: #121c16;
+    --nz-surface-subtle: #18261e;
+    --nz-surface-hover: #1d2e24;
+    --nz-surface-tint: #152b1e;
+    --nz-surface-warn: #272110;
+    --nz-border: #25382d;
+    --nz-border-strong: #2e4638;
+    --nz-border-subtle: #1d2d24;
+    --nz-text-primary: #edf4ef;
+    --nz-text-body: #dce8e0;
+    --nz-text-secondary: #b5c6ba;
+    --nz-text-muted: #93a89a;
+    --nz-brand-text: #4ade80;
+    --nz-brand-accent: #22c55e;
+    --nz-warn-text: #fde68a;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--nz-canvas);
+    color: var(--nz-text-primary);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Global Dark Mode Variable Mappings for Low-Light Readability */
+html.dark body {
+  background-color: var(--nz-canvas);
+  color: var(--nz-text-primary);
+}
+
+html.dark .bg-\[\#F7F9F7\] { background-color: var(--nz-canvas) !important; }
+html.dark .bg-white,
+html.dark .bg-white\/95 { background-color: var(--nz-surface) !important; }
+html.dark .bg-\[\#F2F7F3\],
+html.dark .bg-\[\#EEF3EF\] { background-color: var(--nz-surface-subtle) !important; }
+html.dark .bg-\[\#FAFDFB\] { background-color: var(--nz-surface-hover) !important; }
+html.dark .bg-\[\#EEF7F0\] { background-color: var(--nz-surface-tint) !important; }
+html.dark .bg-\[\#FEFCE8\] { background-color: var(--nz-surface-warn) !important; }
+
+html.dark .border-\[\#DCE5DE\] { border-color: var(--nz-border) !important; }
+html.dark .border-\[\#D4DDD6\],
+html.dark .border-\[\#C7D3CA\] { border-color: var(--nz-border-strong) !important; }
+html.dark .border-\[\#EDF2EE\],
+html.dark .border-\[\#E5ECE6\] { border-color: var(--nz-border-subtle) !important; }
+html.dark .divide-\[\#EDF2EE\] > :not(:last-child) { border-color: var(--nz-border-subtle) !important; }
+
+html.dark .text-\[\#111814\] { color: var(--nz-text-primary) !important; }
+html.dark .text-\[\#1C2720\] { color: var(--nz-text-body) !important; }
+html.dark .text-\[\#445449\] { color: var(--nz-text-secondary) !important; }
+html.dark .text-\[\#546459\],
+html.dark .text-\[\#6B7A70\],
+html.dark .text-\[\#7B8B80\] { color: var(--nz-text-muted) !important; }
+html.dark .text-\[\#14532D\] { color: var(--nz-brand-text) !important; }
+html.dark .text-\[\#15803D\] { color: var(--nz-brand-accent) !important; }
+html.dark .text-\[\#713F12\] { color: var(--nz-warn-text) !important; }
+
+html.dark .hover\:bg-\[\#F2F7F3\]:hover,
+html.dark .hover\:bg-\[\#F7F9F7\]:hover,
+html.dark .hover\:bg-\[\#FAFDFB\]:hover,
+html.dark .hover\:bg-\[\#EEF7F0\]:hover,
+html.dark .hover\:bg-\[\#E8F0EA\]:hover,
+html.dark .hover\:bg-\[\#E2EFE5\]:hover {
+  background-color: var(--nz-surface-hover) !important;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark textarea,
+html.dark select {
+  background-color: var(--nz-surface-subtle);
+  color: var(--nz-text-primary);
+  border-color: var(--nz-border-strong);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--nz-text-muted);
+}
+
+html.dark .recharts-cartesian-grid line {
+  stroke: #24382c;
+}
+
+html.dark .recharts-text {
+  fill: var(--nz-text-muted);
+}
+
+html.dark .driver-popover.nzila-tour-popover {
+  background-color: var(--nz-surface);
+  color: var(--nz-text-primary);
+  border-color: var(--nz-border-strong);
+}
+
+html.dark .driver-popover.nzila-tour-popover .driver-popover-title {
+  color: var(--nz-brand-text);
+}
+
+html.dark .driver-popover.nzila-tour-popover .driver-popover-description,
+html.dark .driver-popover.nzila-tour-popover .driver-popover-progress-text {
+  color: var(--nz-text-secondary);
+}
+
+html.dark .driver-popover.nzila-tour-popover .driver-popover-prev-btn {
+  background-color: var(--nz-surface-subtle);
+  color: var(--nz-text-primary);
+  border-color: var(--nz-border-strong);
+}
+
+/* Nzila Agro Platform Tour (driver.js) Theme */
+.driver-popover.nzila-tour-popover {
+  background-color: #ffffff;
+  color: #111814;
+  border: 1px solid #dce5de;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 340px;
+  box-shadow: 0 18px 40px -12px rgba(15, 29, 20, 0.28);
+  font-family: var(--font-sans);
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #14532d;
+  padding-right: 20px;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-description {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #445449;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-progress-text {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 600;
+  color: #546459;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #edf2ee;
+  gap: 8px;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-navigation-btns {
+  gap: 8px;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-prev-btn {
+  background-color: #ffffff;
+  color: #1c2720;
+  border: 1px solid #d4ddd6;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: none;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-prev-btn:hover {
+  background-color: #f2f7f3;
+  border-color: #b8c9bc;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-next-btn {
+  background-color: #14532d;
+  color: #ffffff;
+  border: 1px solid #14532d;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: none;
+  transition: background-color 150ms ease;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-next-btn:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-close-btn {
+  color: #546459;
+  width: 28px;
+  height: 28px;
+  top: 12px;
+  right: 12px;
+  border-radius: 6px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-close-btn:hover {
+  color: #111814;
+  background-color: #fefce8;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-arrow-side-left.driver-popover-arrow {
+  border-left-color: #ffffff;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-arrow-side-right.driver-popover-arrow {
+  border-right-color: #ffffff;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-arrow-side-top.driver-popover-arrow {
+  border-top-color: #ffffff;
+}
+
+.driver-popover.nzila-tour-popover .driver-popover-arrow-side-bottom.driver-popover-arrow {
+  border-bottom-color: #ffffff;
+}
+
+/* Print-only helper (hidden on screen, shown in @media print) */
+.print-only {
+  display: none;
+}
+
+/* ==========================================================================
+   Optimized Print Stylesheet (@media print)
+   Clean monochrome layout for Audit Logs & Financial Reports
+   ========================================================================== */
+@media print {
+  @page {
+    size: auto;
+    margin: 12mm 14mm;
+  }
+
+  html,
+  html.dark,
+  body,
+  html.dark body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: economy;
+    print-color-adjust: economy;
+  }
+
+  /* Hide navigation, interactive chrome, buttons, overlays and screen-only controls */
+  header,
+  nav,
+  footer,
+  aside,
+  button,
+  .print-hide,
+  .driver-popover,
+  .driver-overlay,
+  [data-tour="principal-tabs"],
+  [data-tour="principal-counters"] {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Strip all unnecessary background colors, shadows and dark-mode tints */
+  *,
+  *::before,
+  *::after {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    color: #111111 !important;
+  }
+
+  /* Expand containers to full printable width without overflow clipping */
+  main,
+  .max-w-7xl,
+  .overflow-x-auto,
+  .overflow-hidden {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Subtle monochrome framing for report cards */
+  .rounded-xl,
+  .rounded-lg {
+    border-radius: 0 !important;
+    border-color: #cccccc !important;
+  }
+
+  /* Institutional print header block */
+  .print-header-banner {
+    display: block !important;
+    border-bottom: 2pt solid #000000 !important;
+    padding-bottom: 8pt !important;
+    margin-bottom: 12pt !important;
+  }
+
+  /* Crisp, legible tables with repeating headers across pages */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 8.5pt !important;
+    page-break-inside: auto;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+  }
+
+  tr,
+  .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  th {
+    border-top: 1.5pt solid #000000 !important;
+    border-bottom: 1.5pt solid #000000 !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    padding: 5pt 6pt !important;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 0.5pt solid #d1d5db !important;
+    padding: 4.5pt 6pt !important;
+    vertical-align: top !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* Render financial inputs & selects cleanly on paper */
+  input,
+  select,
+  textarea {
+    border: none !important;
+    border-bottom: 0.75pt solid #888888 !important;
+    padding: 2pt 0 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    font-size: 9.5pt !important;
+  }
+
+  /* Keep headings attached to their following content */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    color: #000000 !important;
+  }
+
+  /* Hide decorative SVGs inside headings/cards to save ink */
+  svg {
+    display: none !important;
+  }
+}
+
+

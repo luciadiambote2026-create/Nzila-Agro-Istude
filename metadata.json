@@ -1,0 +1,6 @@
+{
+  "name": "Nzila Agro",
+  "description": "Plataforma agrícola angolana que conecta produtores, compradores e serviços agrícolas com rigor administrativo e garantia 24/7.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
