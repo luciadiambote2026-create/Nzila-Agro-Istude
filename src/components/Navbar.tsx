@@ -303,13 +303,27 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onToggleTheme}
             title={theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro'}
             aria-label={theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro'}
-            className="inline-flex items-center justify-center rounded-lg border border-[#D4DDD6] bg-white p-2 text-[#14532D] hover:bg-[#F2F7F3] transition-colors shrink-0"
+            aria-pressed={theme === 'dark'}
+            className="inline-flex items-center justify-center rounded-lg border border-[#D4DDD6] bg-white p-2 text-[#14532D] hover:bg-[#F2F7F3] active:scale-95 transition-all duration-200 shrink-0"
           >
-            {theme === 'dark' ? (
-              <Sun className="w-4 h-4 text-[#FACC15]" />
-            ) : (
-              <Moon className="w-4 h-4" />
-            )}
+            <span className="relative block w-4 h-4 overflow-hidden">
+              <Sun
+                aria-hidden="true"
+                className={`absolute inset-0 w-4 h-4 text-[#FACC15] transition-all duration-300 ease-in-out motion-reduce:transition-none ${
+                  theme === 'dark'
+                    ? 'rotate-0 scale-100 opacity-100'
+                    : '-rotate-90 scale-0 opacity-0'
+                }`}
+              />
+              <Moon
+                aria-hidden="true"
+                className={`absolute inset-0 w-4 h-4 transition-all duration-300 ease-in-out motion-reduce:transition-none ${
+                  theme === 'dark'
+                    ? 'rotate-90 scale-0 opacity-0'
+                    : 'rotate-0 scale-100 opacity-100'
+                }`}
+              />
+            </span>
           </button>
           <button
             type="button"
